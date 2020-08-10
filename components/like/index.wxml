@@ -1,2 +1,2 @@
 <!--components/like/index.wxml-->
-<text>这是一个组件哦笨蛋</text>
+<image class="container" src="./images/like.png" />

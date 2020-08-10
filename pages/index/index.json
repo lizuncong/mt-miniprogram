@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "c-like": "../components/like"
+    "c-like": "/components/like/index"
   }
 }
