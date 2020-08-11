@@ -6,7 +6,7 @@
     "backgroundTextStyle":"#fff",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationStyle": "default",
     "backgroundColor": "#ffffff",
     "enablePullDownRefresh": false
