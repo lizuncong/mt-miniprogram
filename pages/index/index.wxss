@@ -1,15 +1,1 @@
 /**index.wxss**/
-.chunk{
-  width: 200rpx;
-  height: 200rpx;
-  border: 1rpx solid black;
-  background: grey;
-}
-
-.chunk + .chunk {
-  margin-top: 12rpx;
-}
-
-.chunk:nth-child(2n){
-  background: yellow;
-}

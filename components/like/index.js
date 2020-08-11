@@ -1,27 +1,33 @@
 // components/like/index.js
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
-
+    like: {
+      type: Boolean,
+      value: false,
+      observer: function(){
+        console.log('监听like变化....')
+      }
+    },
+    // count: {
+    //   type: Number,
+    //   value: 0,
+    // }
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-    like: true,
-    count: 9,
+    count: 0,
+    iconUrl: './images/like.png'
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    onClick: (e) => {
-      console.log('click....', e)
-      this.setData({ count: this.count + 1})
+    onClick: function(e) {
+      console.log('click....', this.properties.like)
+      this.setData({
+        count: this.data.count + 1,
+      })
     }
   }
 })
