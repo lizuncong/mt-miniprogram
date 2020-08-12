@@ -8,14 +8,13 @@ Component({
         console.log('监听like变化....')
       }
     },
-    // count: {
-    //   type: Number,
-    //   value: 0,
-    // }
+    count: {
+      type: Number,
+      value: 0,
+    }
   },
 
   data: {
-    count: 0,
     iconUrl: './images/like.png'
   },
 
@@ -24,10 +23,10 @@ Component({
    */
   methods: {
     onClick: function(e) {
-      console.log('click....', this.properties.like)
-      this.setData({
-        count: this.data.count + 1,
-      })
+      // console.log('click....', this.properties.like)
+      // this.setData({
+      //   count: this.data.count + 1,
+      // })
     }
   }
 })

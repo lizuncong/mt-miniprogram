@@ -1,5 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-  hello miniprogram
-  <c-like />  
+  <view wx:key="value" wx:for="{{ data }}">
+    {{ item.title }}
+  </view>
+  <c-like count="{{ data.length }}" />  
 </view>
