@@ -3,3 +3,4 @@
 	<image class="image" src="{{ iconUrl }}" />
 	<text class="text">{{ count }}</text>
 </view>
+<view>测试：{{ test }}</view>
