@@ -52,7 +52,7 @@ const request = ({
         statusCode
       } = res;
       // console.log('api..request...success...', res)
-      if (String(statusCode).startsWith('2')) {
+      if (String(statusCode).startsWith('2') && success) {
         success(res.data)
       } else {
         showError(statusCode)
