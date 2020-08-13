@@ -26,38 +26,43 @@ const ERROR_CODE = {
   1005: '服务器内部错误'
 }
 
-class Request {
-  request(params){
-    const { url, method, data, success } = params
-    wx.request({
-      url: `${config.apiBaseUrl}${url}`,
-      method: method || 'GET',
-      data, 
-      header: {
-        'content-type': 'application/json',
-      },
-      success: res => {
-        const { statusCode } = res;
-        // console.log('api..request...success...', res)
-        if(String(statusCode).startsWith('2')){
-          success(res.data)
-        } else {
-          this.showError(statusCode)
-        }
-      },
-      fail: err => {
-        // console.log('api....request...fail...', err)
-        this.showError()
-      }
-    })
-  }
-
-  showError(errorCode){
-    wx.showToast({
-      title: CODE[errorCode] || '未知错误',
-      icon: 'none',
-      duration: 2000, // 2秒
-    })
-  }
+const showError = (errorCode) => {
+  wx.showToast({
+    title: CODE[errorCode] || '未知错误',
+    icon: 'none',
+    duration: 2000, // 2秒
+  })
 }
-export default Request
+
+const request = ({
+  url,
+  method,
+  data,
+  success
+}) => {
+  wx.request({
+    url: `${config.apiBaseUrl}${url}`,
+    method: method || 'GET',
+    data,
+    header: {
+      'content-type': 'application/json',
+    },
+    success: res => {
+      const {
+        statusCode
+      } = res;
+      // console.log('api..request...success...', res)
+      if (String(statusCode).startsWith('2')) {
+        success(res.data)
+      } else {
+        showError(statusCode)
+      }
+    },
+    fail: err => {
+      // console.log('api....request...fail...', err)
+      showError()
+    }
+  })
+}
+
+export default request

@@ -1,4 +1,4 @@
-import productModel from '../../models/product'
+import { getProductList } from '../../api/product'
 //获取应用实例
 const app = getApp()
 
@@ -10,9 +10,12 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  onBtnClick: function(e){
+    console.log('子组件传递回来的信息。。。', e.detail)
+  },
   // 监听页面加载
   onLoad: function (options) {
-    productModel.getList(res => {
+    getProductList({ id: 10 }, res => {
       console.log('success...', res)
       this.setData({
         data: res.data
@@ -20,12 +23,12 @@ Page({
     })
   },
   onReady: function () {
-    console.log('onReady....')
+    // console.log('onReady....')
   },
   onShow: function () {
-    console.log('onShow....')
+    // console.log('onShow....')
   },
   onHide: function () {
-    console.log('onHide...')
+    // console.log('onHide...')
   }
 })

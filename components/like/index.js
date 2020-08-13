@@ -23,6 +23,8 @@ Component({
    */
   methods: {
     onClick: function(e) {
+      console.log('子组件点击了。。。')
+      this.triggerEvent('onBtnClick', { count: 12 })
       // console.log('click....', this.properties.like)
       // this.setData({
       //   count: this.data.count + 1,

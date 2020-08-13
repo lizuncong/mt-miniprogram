@@ -3,5 +3,8 @@
   <view wx:key="value" wx:for="{{ data }}">
     {{ item.title }}
   </view>
-  <c-like count="{{ data.length }}" />  
+  <c-like 
+    count="{{ data.length }}" 
+    bind:onBtnClick="onBtnClick"
+  />  
 </view>
