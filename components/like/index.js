@@ -1,5 +1,8 @@
 // components/like/index.js
+import Pagination from '../behaviors/pagination'
+
 Component({
+  behaviors: [Pagination],
   properties: {
     like: {
       type: Boolean,

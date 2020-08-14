@@ -1,10 +1,18 @@
 <!--index.wxml-->
 <view class="container">
-  <view wx:key="value" wx:for="{{ data }}">
+  <view 
+    class="title" 
+    hidden="{{ true }}"
+    wx:key="value"
+    wx:for="{{ data }}"
+  >
     {{ item.title }}
   </view>
   <c-like 
     count="{{ data.length }}" 
     bind:onBtnClick="onBtnClick"
   />  
+  <view class="mask-container">
+    <c-mask wx:if="{{ true }}" />
+  </view>
 </view>
