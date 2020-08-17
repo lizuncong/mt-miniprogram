@@ -1,8 +1,9 @@
 <!--index.wxml-->
+<wxs src="../../util/filter.wxs" module="util" />
 <view class="container">
   <view 
     class="title" 
-    hidden="{{ true }}"
+    hidden="{{ false }}"
     wx:key="value"
     wx:for="{{ data }}"
   >
@@ -15,4 +16,6 @@
   <view class="mask-container">
     <c-mask wx:if="{{ true }}" />
   </view>
+  <text>aaaaaaa\n8888888</text>
+  <text>{{ util.formatDate(date)}}</text>
 </view>

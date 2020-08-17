@@ -1,8 +1,12 @@
 /* components/like/index.wxss */
+@import "../common.wxss";
+:host{
+  background: green;
+}
 .container{
   display: inline-flex;
   padding-top: 10rpx;
-  background: red;
+  background: yellow;
 }
 .container .image{
   width: 32rpx;

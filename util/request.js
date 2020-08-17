@@ -36,13 +36,13 @@ const showError = (errorCode) => {
 
 const request = ({
   url,
-  method,
-  data,
+  method = 'GET',
+  data = {},
   success
 }) => {
   wx.request({
     url: `${config.apiBaseUrl}${url}`,
-    method: method || 'GET',
+    method,
     data,
     header: {
       'content-type': 'application/json',
