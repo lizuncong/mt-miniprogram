@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "c-like": "/components/like/index",
-    "c-mask": "/components/mask/index"
+    "c-mask": "/components/mask/index",
+    "c-input": "./components/input/index"
   }
 }

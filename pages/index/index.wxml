@@ -1,6 +1,7 @@
 <!--index.wxml-->
-<wxs src="../../util/filter.wxs" module="util" />
+<wxs src="../../util/index.wxs" module="util" />
 <view class="container">
+  <c-input />
   <view 
     class="title" 
     hidden="{{ false }}"
@@ -16,6 +17,11 @@
   <view class="mask-container">
     <c-mask wx:if="{{ true }}" />
   </view>
-  <text>aaaaaaa\n8888888</text>
+  <text decode="{{ true }}" class="text">
+    哈哈哈&nbsp;测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+    测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+    测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+    测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试
+  </text>
   <text>{{ util.formatDate(date)}}</text>
 </view>

@@ -10,3 +10,7 @@
   background: red;
   overflow: hidden;
 }
+
+.text{
+  text-indent: 300rpx;
+}

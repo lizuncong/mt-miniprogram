@@ -1,0 +1,26 @@
+// 格式化日期
+var formatDate = function (d) {
+  var a = {
+    name: 'lzc'
+  }
+  console.log('test.....', JSON.stringify(a))
+  var date = getDate(d)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  return [
+    year,
+    month > 9 ? month : '0' + month,
+    day > 9 ? day : '0' + day
+  ].join('-')
+}
+
+// class方法
+var classnames = function () {
+
+}
+
+module.exports = {
+  formatDate: formatDate,
+  classnames: classnames,
+}
