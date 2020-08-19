@@ -15,7 +15,7 @@ var formatDate = function (d) {
   ].join('-')
 }
 
-// class方法
+// 合并class的工具方法
 var classnames = function () {
 
 }

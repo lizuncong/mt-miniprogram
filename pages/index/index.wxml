@@ -2,6 +2,7 @@
 <wxs src="../../util/index.wxs" module="util" />
 <view class="container">
   <c-input />
+  <open-data class="avatar" type="userAvatarUrl" />
   <view 
     class="title" 
     hidden="{{ false }}"

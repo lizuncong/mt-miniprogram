@@ -34,35 +34,45 @@ const showError = (errorCode) => {
   })
 }
 
-const request = ({
-  url,
-  method = 'GET',
-  data = {},
-  success
-}) => {
-  wx.request({
-    url: `${config.apiBaseUrl}${url}`,
-    method,
-    data,
-    header: {
-      'content-type': 'application/json',
-    },
-    success: res => {
-      const {
-        statusCode
-      } = res;
-      // console.log('api..request...success...', res)
-      if (String(statusCode).startsWith('2') && success) {
-        success(res.data)
-      } else {
-        showError(statusCode)
-      }
-    },
-    fail: err => {
-      // console.log('api....request...fail...', err)
-      showError()
-    }
-  })
+class Request {
+  constructor() {
+    this.apiBaseUrl = config.apiBaseUrl
+  }
+  request({
+    url,
+    method = 'GET',
+    data = {}
+  }) {
+    return new Promise(resolve => {
+      wx.request({
+        url: `${this.apiBaseUrl}${url}`,
+        method,
+        data,
+        header: {
+          'content-type': 'application/json',
+        },
+        success: res => {
+          const {
+            statusCode
+          } = res;
+          // console.log('api..request...success...', res)
+          if (String(statusCode).startsWith('2')) {
+            resolve(res.data)
+          } else {
+            showError(statusCode)
+          }
+        },
+        fail: err => {
+          // console.log('api....request...fail...', err)
+          showError()
+        }
+      })
+    })
+  }
+
+  get(url, data) {
+
+  }
 }
 
-export default request
+export default Request
