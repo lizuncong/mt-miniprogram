@@ -26,18 +26,19 @@ const ERROR_CODE = {
   1005: '服务器内部错误'
 }
 
-const showError = (errorCode) => {
-  wx.showToast({
-    title: CODE[errorCode] || '未知错误',
-    icon: 'none',
-    duration: 2000, // 2秒
-  })
-}
-
 class Request {
   constructor() {
     this.apiBaseUrl = config.apiBaseUrl
   }
+
+  showError(errorCode) {
+    wx.showToast({
+      title: CODE[errorCode] || ERROR_CODE[errorCode] || '未知错误',
+      icon: 'none',
+      duration: 2000, // 2秒
+    })
+  }
+
   request({
     url,
     method = 'GET',
@@ -55,23 +56,44 @@ class Request {
           const {
             statusCode
           } = res;
-          // console.log('api..request...success...', res)
+          // 首先判断http状态码
           if (String(statusCode).startsWith('2')) {
-            resolve(res.data)
+            const {
+              code
+            } = res.data
+            // 其次判断业务状态码
+            if (code === 0) {
+              resolve(res.data)
+            } else {
+              this.showError(code)
+              resolve()
+            }
           } else {
-            showError(statusCode)
+            this.showError(statusCode)
+            resolve()
           }
         },
         fail: err => {
-          // console.log('api....request...fail...', err)
-          showError()
+          this.showError()
+          resolve()
         }
       })
     })
   }
 
   get(url, data) {
+    return this.request({
+      url,
+      data
+    })
+  }
 
+  post(url, data) {
+    return this.request({
+      url,
+      data,
+      method: 'POST'
+    })
   }
 }
 

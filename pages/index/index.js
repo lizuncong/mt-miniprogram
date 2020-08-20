@@ -1,6 +1,6 @@
-import {
-  getProductList
-} from '../../api/product'
+import ProductModel from '../../models/product'
+
+const productModel = new ProductModel()
 //获取应用实例
 const app = getApp()
 
@@ -18,9 +18,7 @@ Page({
   },
   // 监听页面加载
   onLoad: function (options) {
-    getProductList({
-      id: 10
-    }, res => {
+    productModel.getProductList({ id: 12 }).then(res => {
       console.log('success...', res)
       this.setData({
         data: res.data
