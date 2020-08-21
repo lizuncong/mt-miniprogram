@@ -6,4 +6,8 @@
   >
     获取用户手机号码
   </button>
+  <view mark:myMark="last" bindtap="onParentClick">
+    父节点
+    <view mark:childMark="child">子节点</view>
+  </view>
 </view>

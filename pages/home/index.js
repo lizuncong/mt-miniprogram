@@ -4,5 +4,8 @@ Page({
   },
   getUserInfo(){
     console.log('userInfo....')
+  },
+  onParentClick(event){
+    console.log(event)
   }
 })

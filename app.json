@@ -5,7 +5,7 @@
     "pages/me/index"
   ],
   "window":{
-    "backgroundTextStyle":"#fff",
+    "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black",
